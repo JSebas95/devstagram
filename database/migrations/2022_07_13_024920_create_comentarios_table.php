@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); //Si se elimina un uaurio borra sus publicaciones
+            $table->foreignId('post_id')->constrained()->onDelete('cascade'); //Si se elimina un uaurio borra sus publicaciones
             $table->string('comentario');
             $table->timestamps();
         });
